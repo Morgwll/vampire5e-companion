@@ -1,5 +1,5 @@
 {
-  "name": "v-inter",
+  "name": "vampire 5e companion",
   "description": "A page for the Inter layout",
   "version": "1.0.0",
   "author": "Joseph Ortega",
@@ -22,7 +22,6 @@
     "not ie <= 10"
   ],
   "devDependencies": {
-    "@mkweb/vuex-promoweb": "^1.7.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
