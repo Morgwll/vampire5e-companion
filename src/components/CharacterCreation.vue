@@ -7,7 +7,11 @@
       <div>{{ concept.text }}<input v-model="concept.value"></div>
       <div>{{ ambition.text }}<input v-model="ambition.value"></div>
       <div>{{ desire.text }}<input v-model="desire.value"></div>
-      <div>{{ predator.text }}<input v-model="predator.value"></div>
+      <div>{{ predator.text }}
+        <select>
+          <option v-for="(item, index) in predator.value" :key="index">{{ item.text }}</option>
+        </select>
+      </div>
       <div>{{ clan.text }}
         <select>
           <option v-for="(item, index) in clan.value" :key="index">{{ item.text }}</option>
@@ -15,12 +19,13 @@
       </div>
       <div>{{ generation.text }}
         <select>
-          <option v-for="(item, index) in generation.value" :key="index">{{ item }}th</option>
+          <option v-for="(item, index) in generation.value" :key="index">{{ item.text }}</option>
         </select>
       </div>
     </div>
     <div class="points-container">
       <div class="abilities">
+        <h3>Attributes</h3>
         <ul>
           <li class="ability-score" v-for="(item, index) in abilityset" :key="index">
             <div class="ability-name">{{ item.text }}</div>
@@ -40,6 +45,7 @@
         </ul>
       </div>
       <div class="abilities">
+        <h3>Skills</h3>
         <ul>
           <li class="ability-score" v-for="(item, index) in skillset" :key="index">
             <div class="ability-name">{{ item.text }}</div>
@@ -96,7 +102,52 @@ export default {
       },
       predator: {
         text: "Predator",
-        value: ""
+        value: {
+          none: {
+            text: "-- Select Predator --",
+            value: 0
+          },
+          alleycat: {
+            text: "Alleycat",
+            value: 1
+          },
+          bagger: {
+            text: "Bagger",
+            value: 2
+          },
+          bloodleech: {
+            text: "Blood Leech",
+            value: 3
+          },
+          cleaver: {
+            text: "Cleaver",
+            value: 4
+          },
+          consensualist: {
+            text: "Consensualist",
+            value: 5
+          },
+          farmer: {
+            text: "Farmer",
+            value: 6
+          },
+          osiris: {
+            text: "Osiris",
+            value: 7
+          },
+          sandman: {
+            text: "Sandman",
+            value: 8
+          },
+          scenequeen: {
+            text: "Scene Queen",
+            value: 9
+          },
+          siren: {
+            text: "Siren",
+            value: 10
+          },
+        }
       },
       clan: {
         text: "Clan",
@@ -146,19 +197,42 @@ export default {
       generation: {
         text: "Generation",
         value: {
-          fifteenth: 15,
-          fourteeth: 14,
-          thirteenth: 13,
-          twelfth: 12,
-          eleventh: 11,
-          tenth: 10,
+          none: {
+            text: '-- Select Generation --',
+            gen: 0
+          },
+          fifteenth: {
+            text: 'Fifteenth',
+            gen: 15
+          },
+          fourteeth: {
+            text: 'Fourteenth',
+            gen: 14
+          },
+          thirteenth: {
+            text: 'Thirteenth',
+            gen: 13
+          },
+          twelfth: {
+            text: 'Twelfth',
+            gen: 12
+          },
+          eleventh: {
+            text: 'Eleventh',
+            gen: 11
+          },
+          tenth: {
+            text: 'Tenth',
+            gen: 10
+          },
         }
       },
       health: 6,
       willpower: 5,
-      humanity: 6,
+      humanity: 7,
       hunger: 3,
-      skillpoints: 15,
+      gen: 1,
+      skillpoints: 35,
       attributepoints: 13,
       abilityset: {
         strength: {
@@ -429,6 +503,24 @@ export default {
         points++;
         console.log(num.text, num.score, points);
       }
+    },
+    generationExp(gen) {
+      let skillpoints = 0;
+      let bloodPotency = 0
+      if(gen >= 14) {
+        bloodPotency = 0;
+      } else if(gen == 12 || gen == 13) {
+        bloodPotency = 1;
+        skillpoints = 15;
+      } else if(gen == 11 || gen == 10) {
+        bloodPotency = 2;
+        skillpoints = 35;
+        this.humanity--;
+      }
+      return {
+        skillpoints,
+        bloodPotency
+      };
     }
   }
 }
@@ -440,10 +532,12 @@ export default {
 }
 .abilities {
   height: 115px;
+  h3 {
+    text-align: center;
+  }
   ul {
     list-style-type: none;
     .ability-score {
-      border: 1px solid #c1c1c1;
       .ability-name {
         width: 105px;
         float: left;

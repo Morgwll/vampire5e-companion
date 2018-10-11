@@ -59,7 +59,6 @@ export default {
   ul {
     list-style-type: none;
     .ability-score {
-      border: 1px solid #c1c1c1;
       .ability-name {
         width: 150px;
         float: left;
