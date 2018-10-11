@@ -1,0 +1,262 @@
+{
+  "name": "",
+  "chronicle": "",
+  "sire": "",
+  "concept": "",
+  "ambition": "",
+  "desire": "",
+  "predator": "",
+  "clan": "",
+  "generation": "",
+  "health": 6,
+  "willpower": 5,
+  "humanity": 6,
+  "hunger": 3,
+  "abilityset": {
+    "strength": {
+      "text": "Strength",
+      "score": 1
+    },
+    "dexterity": {
+      "text": "Dexterity",
+      "score": 1
+    },
+    "stamina": {
+      "text": "Stamina",
+      "score": 1
+    },
+    "charisma": {
+      "text": "Charisma",
+      "score": 1
+    },
+    "manipulation": {
+      "text": "Manipulation",
+      "score": 1
+    },
+    "composure": {
+      "text": "Composure",
+      "score": 1
+    },
+    "intelligence": {
+      "text": "Intelligence",
+      "score": 1
+    },
+    "wits": {
+      "text": "Wits",
+      "score": 1
+    },
+    "resolve": {
+      "text": "Resolve",
+      "score": 1
+    }
+  },
+  "skillset": {
+    "athletics": {
+      "text": "Athletics",
+      "score": 0,
+      "ability": ""
+    },
+    "brawl": {
+      "text": "Brawl",
+      "score": 0,
+      "ability": ""
+    },
+    "craft": {
+      "text": "Craft",
+      "score": 0,
+      "ability": ""
+    },
+    "drive": {
+      "text": "Drive",
+      "score": 0,
+      "ability": ""
+    },
+    "firearms": {
+      "text": "Firearms",
+      "score": 0,
+      "ability": ""
+    },
+    "larceny": {
+      "text": "Larceny",
+      "score": 0,
+      "ability": ""
+    },
+    "melee": {
+      "text": "Melee",
+      "score": 0,
+      "ability": ""
+    },
+    "stealth": {
+      "text": "Stealth",
+      "score": 0,
+      "ability": ""
+    },
+    "survival": {
+      "text": "Survival",
+      "score": 0,
+      "ability": ""
+    },
+    "animalKen": {
+      "text": "Animal Ken",
+      "score": 0,
+      "ability": ""
+    },
+    "etiquette": {
+      "text": "Etiquette",
+      "score": 0,
+      "ability": ""
+    },
+    "insight": {
+      "text": "Insight",
+      "score": 0,
+      "ability": ""
+    },
+    "intimidation": {
+      "text": "Intimidation",
+      "score": 0,
+      "ability": ""
+    },
+    "leadership": {
+      "text": "Leadership",
+      "score": 0,
+      "ability": ""
+    },
+    "performance": {
+      "text": "Performance",
+      "score": 0,
+      "ability": ""
+    },
+    "persuasion": {
+      "text": "Persuasion",
+      "score": 0,
+      "ability": ""
+    },
+    "streetwise": {
+      "text": "Streetwise",
+      "score": 0,
+      "ability": ""
+    },
+    "subterfuge": {
+      "text": "Subterfuge",
+      "score": 0,
+      "ability": ""
+    },
+    "academics": {
+      "text": "Academics",
+      "score": 0,
+      "ability": ""
+    },
+    "awareness": {
+      "text": "Awareness",
+      "score": 0,
+      "ability": ""
+    },
+    "finance": {
+      "text": "Finance",
+      "score": 0,
+      "ability": ""
+    },
+    "investigation": {
+      "text": "Investigation",
+      "score": 0,
+      "ability": ""
+    },
+    "medicine": {
+      "text": "Medicine",
+      "score": 0,
+      "ability": ""
+    },
+    "occult": {
+      "text": "Occult",
+      "score": 0,
+      "ability": ""
+    },
+    "politics": {
+      "text": "Politics",
+      "score": 0,
+      "ability": ""
+    },
+    "science": {
+      "text": "Science",
+      "score": 0,
+      "ability": ""
+    },
+    "technology": {
+      "text": "Technology",
+      "score": 0,
+      "ability": ""
+    }
+  },
+  "disciplines": {
+    "auspex": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "animalism": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "bloodSorcery": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "celerity": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "domination": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "fortitude": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "obfuscation": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "potency": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "presence": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    },
+    "protean": {
+      "level1": "",
+      "level2": "",
+      "level3": "",
+      "level4": "",
+      "level5": ""
+    }
+  }
+}

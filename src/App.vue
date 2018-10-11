@@ -5,11 +5,12 @@
 </template>
 <script>
 import appCharacter from './components/Character.vue';
+import appCharacterCreation from './components/CharacterCreation.vue';
 
 export default {
   data() {
     return {
-      selected: appCharacter
+      selected: appCharacterCreation
     }
   }
 }

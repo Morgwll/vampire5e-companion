@@ -9,7 +9,7 @@ export default {
       for(let index = 0;index < num;index++) {
         results.push(this.dice());
       }
-      console.log("meee", results)
+      console.log(results);
     },
     totalScoreRoll(ability, skill, hunger) {
       let regular = ability + skill - hunger;
