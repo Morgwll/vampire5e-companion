@@ -27,9 +27,37 @@
               <li class="ability-white-dot" v-for="(whitedot, iwhite) in skilldots(item.score).white" :key="iwhite"></li>
             </ul>
           </div>
-          <button @click.prevent="totalScoreRoll(4, item.score, characterSheet.hunger)">Roll</button>
+          <button class="roll" @click.prevent="openRollDialogue(item.text, item.score)">
+            Roll
+          </button>
         </li>
+        
       </ul>
+    </div>
+    <div class="roller-modal" v-show="openRollModal">
+      <div class="roller-modal-dialogue">
+        <div class="close" @click.prevent="closeRollDialogue">
+          X
+        </div>
+        <div class="roll-dialogue">
+          <select v-model="statRoll">
+            <option  disabled value="">-- Attribute select --</option>
+            <option v-for="(item, i) in characterSheet.abilityset" :key="i" :statRoll="item.score">{{ item.score }}</option>
+          </select>
+          + {{ skillName }}
+          <button @click.prevent="totalScoreRoll(statRoll, skillRoll, characterSheet.hunger)">Roll</button>
+          {{ statRoll }}, {{ skillRoll }}, {{ characterSheet.hunger}}
+        </div>
+        <div class="roll-result">
+          Stat: {{ statRoll }}, Skill: {{ skillRoll }}, Hunger: {{ characterSheet.hunger }}
+          <ul class="regular-roll-result">
+            <li v-for="(item, index) in totalRegularRoll" :key="index">{{ item }}</li>
+          </ul>
+          <ul class="hunger-roll-result">
+            <li v-for="(item, index) in totalHungerRoll" :key="index">{{ item }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +69,13 @@ export default {
   mixins: [diceroller],
   data() {
     return {
-      characterSheet: char
+      characterSheet: char,
+      statRoll: null,
+      skillRoll: null,
+      skillName: null,
+      totalRegularRoll: [],
+      totalHungerRoll: [],
+      openRollModal: false
     }
   },
   methods: {
@@ -50,6 +84,14 @@ export default {
         white: 5 - num,
         black: num
       }
+    },
+    openRollDialogue(name, arg) {
+      this.openRollModal = true;
+      this.skillName = name;
+      this.skillRoll = arg;
+    },
+    closeRollDialogue() {
+      this.openRollModal = false;
     }
   }
 }
@@ -82,6 +124,23 @@ export default {
         }
       }
     }
+  }
+}
+.roller-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,.8);
+  &-dialogue {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    margin: calc(50% - 100px) auto;
   }
 }
 

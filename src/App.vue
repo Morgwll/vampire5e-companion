@@ -23,7 +23,7 @@ import appCharacterCreation from './components/CharacterCreation.vue';
 export default {
   data() {
     return {
-      selected: appCharacterCreation,
+      selected: appCharacter,
       user: {
         username: '',
         email: '',
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$http.post('https://vampire-companion-9e6fa.firebaseio.com/data.json', this.user)
+      this.$http.post('', this.user)
         .then(response => {
           console.log(response);
         }, error => {
@@ -47,7 +47,7 @@ export default {
         });
     },
     getData() {
-      this.$http.get('https://vampire-companion-9e6fa.firebaseio.com/data.json')
+      this.$http.get('')
       .then(response => {
         return response.json();
       })

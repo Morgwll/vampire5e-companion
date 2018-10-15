@@ -11,7 +11,7 @@
   "health": 6,
   "willpower": 5,
   "humanity": 6,
-  "hunger": 3,
+  "hunger": 1,
   "abilityset": {
     "strength": {
       "text": "Strength",

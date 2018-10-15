@@ -10,12 +10,20 @@ export default {
         results.push(this.dice());
       }
       console.log(results);
+      return results;
     },
     totalScoreRoll(ability, skill, hunger) {
+      let maxDice = ability + skill;
       let regular = ability + skill - hunger;
+      if (maxDice <= hunger) {
+        hunger = maxDice;
+      }
       let result = this.rollDice(regular);
       let resultHunger = this.rollDice(hunger);
-      return result + resultHunger;
+      return {
+        result: result,
+        resultHunger: resultHunger
+      }
     }
   }
 }
