@@ -11,11 +11,11 @@
   "health": 6,
   "willpower": 5,
   "humanity": 6,
-  "hunger": 1,
+  "hunger": 2,
   "abilityset": {
     "strength": {
       "text": "Strength",
-      "score": 1
+      "score": 3
     },
     "dexterity": {
       "text": "Dexterity",
@@ -54,137 +54,168 @@
     "athletics": {
       "text": "Athletics",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "brawl": {
       "text": "Brawl",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "craft": {
       "text": "Craft",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "drive": {
       "text": "Drive",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "firearms": {
       "text": "Firearms",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "larceny": {
       "text": "Larceny",
-      "score": 0,
-      "ability": ""
+      "score": 1,
+      "ability": "",
+      "specialties": [
+        {
+          "name": "Houses"
+        }
+      ]
     },
     "melee": {
       "text": "Melee",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "stealth": {
       "text": "Stealth",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "survival": {
       "text": "Survival",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "animalKen": {
       "text": "Animal Ken",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "etiquette": {
       "text": "Etiquette",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "insight": {
       "text": "Insight",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "intimidation": {
       "text": "Intimidation",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "leadership": {
       "text": "Leadership",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "performance": {
       "text": "Performance",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "persuasion": {
       "text": "Persuasion",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "streetwise": {
       "text": "Streetwise",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "subterfuge": {
       "text": "Subterfuge",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "academics": {
       "text": "Academics",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "awareness": {
       "text": "Awareness",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "finance": {
       "text": "Finance",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "investigation": {
       "text": "Investigation",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "medicine": {
       "text": "Medicine",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "occult": {
       "text": "Occult",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "politics": {
       "text": "Politics",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "science": {
       "text": "Science",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     },
     "technology": {
       "text": "Technology",
       "score": 0,
-      "ability": ""
+      "ability": "",
+      "specialties": []
     }
   },
   "disciplines": {

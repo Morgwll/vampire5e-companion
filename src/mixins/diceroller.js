@@ -7,23 +7,36 @@ export default {
     rollDice(num) {
       let results = [];
       for(let index = 0;index < num;index++) {
-        results.push(this.dice());
+        let outcome = '';
+        let diceRolling = this.dice();
+        if(diceRolling == 10) {
+          outcome = "critical success";
+        } else if ((diceRolling > 5) && (diceRolling < 10)) {
+          outcome = "success";
+        } else {
+          outcome = "failure"
+        }
+        results.push(outcome);
       }
-      console.log(results);
       return results;
     },
-    totalScoreRoll(ability, skill, hunger) {
-      let maxDice = ability + skill;
-      let regular = ability + skill - hunger;
-      if (maxDice <= hunger) {
-        hunger = maxDice;
+    rollHungerDice(num) {
+      let results = [];
+      for(let index = 0;index < num;index++) {
+        let outcome = '';
+        let diceRolling = this.dice();
+        if(diceRolling == 10) {
+          outcome = "critical success";
+        } else if ((diceRolling > 5) && (diceRolling < 10)) {
+          outcome = "success";
+        } else if (diceRolling == 1) {
+          outcome = "critical failure"
+        } else {
+          outcome = "failure"
+        }
+        results.push(outcome);
       }
-      let result = this.rollDice(regular);
-      let resultHunger = this.rollDice(hunger);
-      return {
-        result: result,
-        resultHunger: resultHunger
-      }
+      return results;
     }
   }
 }
