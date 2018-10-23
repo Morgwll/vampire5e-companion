@@ -26,6 +26,15 @@
     <div class="points-container">
       <div class="abilities">
         <h3>Attributes</h3>
+        <br>
+        <select>
+          <option>( 1-2-3 / 2-3-4 / 2-2-3 )</option>
+          <option>( 1-2-3 / 2-2-3 / 2-3-4)</option>
+          <option>( 2-3-4 / 1-2-3 / 2-2-3 )</option>
+          <option>( 2-3-4 / 2-2-3 / 1-2-3 )</option>
+          <option>( 2-2-3 / 1-2-3 / 2-3-4 )</option>
+          <option>( 2-2-3 / 2-3-4 / 1-2-3 )</option>
+        </select>
         <ul>
           <li class="ability-score" v-for="(item, index) in abilityset" :key="index">
             <div class="ability-name">{{ item.text }}</div>
@@ -38,8 +47,8 @@
               </ul>
             </div>
             <div class="ability-points-mod">
-              <button @click.prevent="addDots(item, attributepoints)">+</button>
-            <button @click.prevent="removeDots(item, attributepoints)">-</button>
+              <button @click.prevent="addAttrDots(item)">+</button>
+            <button @click.prevent="removeAttrDots(item)">-</button>
             </div>
           </li>
         </ul>
@@ -58,8 +67,12 @@
               </ul>
             </div>
             <div class="ability-points-mod">
-              <button @click.prevent="addDots(item, skillpoints)">+</button>
-              <button @click.prevent="removeDots(item, skillpoints)">-</button>
+              <button @click.prevent="addSkillDots(item)">+</button>
+              <button @click.prevent="removeSkillDots(item)">-</button>
+            </div>
+            <div class="add-specialty">
+              <input v-model="item.newSpecialty"/>
+              <button @click.prevent="addSpecialty(item.newSpecialty, item.specialties)">Add Specialty</button>
             </div>
           </li>
         </ul>
@@ -232,8 +245,8 @@ export default {
       humanity: 7,
       hunger: 3,
       gen: 1,
-      skillpoints: 35,
-      attributepoints: 13,
+      skillPoints: 35,
+      attributePoints: 13,
       abilityset: {
         strength: {
           text: "Strength",
@@ -272,141 +285,169 @@ export default {
           score: 1
         }
       },
+      provSpecialty: '',
       skillset: {
         athletics: {
           text: "Athletics",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         brawl: {
           text: "Brawl",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         craft: {
           text: "Craft",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         drive: {
           text: "Drive",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         firearms: {
           text: "Firearms",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         larceny: {
           text: "Larceny",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         melee: {
           text: "Melee",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         stealth: {
           text: "Stealth",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         survival: {
           text: "Survival",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         animalKen: {
           text: "Animal Ken",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         etiquette: {
           text: "Etiquette",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         insight: {
           text: "Insight",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         intimidation: {
           text: "Intimidation",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         leadership: {
           text: "Leadership",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         performance: {
           text: "Performance",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         persuasion: {
           text: "Persuasion",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         streetwise: {
           text: "Streetwise",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         subterfuge: {
           text: "Subterfuge",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         academics: {
           text: "Academics",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         awareness: {
           text: "Awareness",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         finance: {
           text: "Finance",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         investigation: {
           text: "Investigation",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         medicine: {
           text: "Medicine",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         occult: {
           text: "Occult",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         politics: {
           text: "Politics",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         science: {
           text: "Science",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         },
         technology: {
           text: "Technology",
           score: 0,
-          ability: ""
+          newSpecialty: '',
+          specialties: []
         }
       },
       disciplines: {
@@ -490,20 +531,41 @@ export default {
         black: num
       }
     },
-    addDots(num, points) {
-      if((num.score < 5) && (points > 0)) {
+    addSkillDots(num, points) {
+      if((num.score < 5) && (this.skillPoints > 0)) {
         num.score++;
-        points--;
-        console.log(num.text, num.score, points);
+        this.skillPoints--;
+        console.log(num.text, num.score, this.skillPoints);
       }
     },
-    removeDots(num, points) {
+    removeSkillDots(num) {
       if(num.score > 0) {
         num.score--;
-        points++;
-        console.log(num.text, num.score, points);
+        this.skillPoints++;
+        console.log(num.text, num.score, this.skillPoints);
       }
     },
+    addAttrDots(num, points) {
+      if((num.score < 5) && (this.attributePoints > 0)) {
+        num.score++;
+        this.attributePoints--;
+        console.log(num.text, num.score, this.attributePoints);
+      }
+    },
+    removeAttrDots(num) {
+      if(num.score > 0) {
+        num.score--;
+        this.attributePoints++;
+        console.log(num.text, num.score, this.attributePoints);
+      }
+    },
+    addSpecialty(term, arr) {
+      console.log(arr);
+      console.log(term);
+      arr.push("specialty: " + term);
+    }
+  },
+  computed: {
     generationExp(gen) {
       let skillpoints = 0;
       let bloodPotency = 0

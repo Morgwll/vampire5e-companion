@@ -85,11 +85,7 @@
       "text": "Larceny",
       "score": 1,
       "ability": "",
-      "specialties": [
-        {
-          "name": "Houses"
-        }
-      ]
+      "specialties": [ "Houses" ]
     },
     "melee": {
       "text": "Melee",

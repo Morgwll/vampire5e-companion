@@ -1,44 +1,31 @@
 <template>
   <div id="app">
-    <div class="form-group">
-      <label>Username</label>
-      <input class="form-control" type="text" v-model="user.username">
-    </div>
-    <div class="form-group">
-      <label>Mail</label>
-      <input class="form-control" type="text" v-model="user.email">
-    </div>
-    <button class="submit-button" @click.prevent="submit">Submit</button>
-    <button class="get-button" @click.prevent="getData">GetData</button>
-    <ul>
-      <li v-for="(item, index) in users" :key="index">{{ item.username }} - {{ item.email }} - <ul><li v-for="(character, i) in item.characters" :key="i">{{ character.name }}</li></ul></li>
-    </ul>
-    <component :is="selected"></component>
+    <component :is="logReg"/>
+    <hr>
+    <component :is="selected"/>
   </div>
 </template>
 <script>
+import appLogin from './components/Login.vue';
+import appRegister from './components/Register.vue';
 import appCharacter from './components/Character.vue';
 import appCharacterCreation from './components/CharacterCreation.vue';
 
 export default {
+  components: {
+    appLogin,
+    appRegister,
+    appCharacter,
+    appCharacterCreation
+  },
   data() {
     return {
-      selected: appCharacter,
-      user: {
-        username: '',
-        email: '',
-        password: '',
-        characters: [
-          {
-            name: 'ManoloCabezabolo'
-          }
-        ]
-      },
-      users: []
+      logReg: appRegister,
+      selected: appCharacterCreation,
     }
   },
   methods: {
-    submit() {
+    login() {
       this.$http.post('', this.user)
         .then(response => {
           console.log(response);
@@ -46,7 +33,7 @@ export default {
           console.log(error);
         });
     },
-    getData() {
+    register() {
       this.$http.get('')
       .then(response => {
         return response.json();
