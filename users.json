@@ -1,0 +1,26 @@
+[
+  {
+    "username": "Morgwll"
+  },
+  {
+    "email": "morgwll@gmail.com"
+  },
+  {
+    "password": "Mejsl"
+  },
+  {
+    "characters": [
+      {
+        "characterName": "Veraudo",
+        "characterClan": "Nosferatu",
+        "characterChronicle": "Pietro",
+        "characterStats" : [
+          {
+            "attributes": [
+              
+            ]
+          }
+        ]
+      }
+  ]}
+]

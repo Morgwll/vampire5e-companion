@@ -47,8 +47,8 @@
               </ul>
             </div>
             <div class="ability-points-mod">
-              <button @click.prevent="addAttrDots(item)">+</button>
-            <button @click.prevent="removeAttrDots(item)">-</button>
+              <button @click.prevent="addAttrDots(item, 5)">+</button>
+            <button @click.prevent="removeAttrDots(item, 5)">-</button>
             </div>
           </li>
         </ul>
@@ -67,8 +67,8 @@
               </ul>
             </div>
             <div class="ability-points-mod">
-              <button @click.prevent="addSkillDots(item)">+</button>
-              <button @click.prevent="removeSkillDots(item)">-</button>
+              <button @click.prevent="addSkillDots(item, 5)">+</button>
+              <button @click.prevent="removeSkillDots(item, 5)">-</button>
             </div>
             <div class="add-specialty">
               <input v-model="item.newSpecialty"/>
@@ -76,6 +76,36 @@
             </div>
           </li>
         </ul>
+      </div>
+      <div class="health-willpower">
+        <div class="health-track">
+          <div class="ability-dots">
+            <ul>
+              <li class="ability-black-dot" v-for="(blackdot, iblack) in trackdots(health.score).black" :key="iblack"></li>
+            </ul>
+            <ul>
+              <li class="ability-white-dot" v-for="(whitedot, iwhite) in trackdots(health.score).white" :key="iwhite"></li>
+            </ul>
+          </div>
+          <div class="ability-points-mod">
+              <button @click.prevent="addSkillDots(item, 10)">+</button>
+              <button @click.prevent="removeSkillDots(item, 10)">-</button>
+            </div>
+        </div>
+        <div class="willpower-track">
+          <div class="ability-dots">
+            <ul>
+              <li class="ability-black-dot" v-for="(blackdot, iblack) in trackdots(willpower.score).black" :key="iblack"></li>
+            </ul>
+            <ul>
+              <li class="ability-white-dot" v-for="(whitedot, iwhite) in trackdots(willpower.score).white" :key="iwhite"></li>
+            </ul>
+          </div>
+          <div class="ability-points-mod">
+              <button @click.prevent="addSkillDots(item, 10)">+</button>
+              <button @click.prevent="removeSkillDots(item, 10)">-</button>
+            </div>
+        </div>
       </div>
     </div>
   </div>
@@ -531,8 +561,14 @@ export default {
         black: num
       }
     },
-    addSkillDots(num, points) {
-      if((num.score < 5) && (this.skillPoints > 0)) {
+    trackdots(num) {
+      return {
+        white: 10 - num,
+        black: num
+      }
+    },
+    addSkillDots(num, max, points) {
+      if((num.score < max) && (this.skillPoints > 0)) {
         num.score++;
         this.skillPoints--;
         console.log(num.text, num.score, this.skillPoints);

@@ -23,76 +23,35 @@
       </div>
       <div>{{ message }}</div>
       <button class="submit-button" @click.prevent="submit">Submit</button>
-      <button class="get-button" @click.prevent="getData">GetData</button>
+      <button class="get-button" @click.prevent="compareData">GetData</button>
       <hr>
+      {{ users }}
   </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      formChecked: false,
+  data: () => ({
+    formChecked: false,
+    username: '',
+    email: '',
+    password: '',
+    secondPassword: '',
+    message: '',
+    user: {
       username: '',
       email: '',
       password: '',
-      secondPassword: '',
-      message: '',
-      user: {
-        username: '',
-        email: '',
-        password: '',
-      },
-      users: [],
-      response: ''
-    }
-  },
-  methods: {
-    getData() {
-      this.$http.get('')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        const resultArray = [];
-        for (let key in data) {
-          resultArray.push(data[key]);
-        }
-        this.users = resultArray;
-      });
     },
+    users: null
+  }),
+  methods: {
     compareData() {
-      let response = '';
-      this.$http.get('')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        const resultArray = [];
-        for (let key in data) {
-          resultArray.push(data[key]);
-        }
-        this.users = resultArray;
-        this.response = "meeeh";
-        console.log(resultArray);
-        for(let i = 0;resultArray.length > i; i++) {
-          console.log("dos veces");
-          console.log(resultArray[i].username);
-          if(resultArray[i].username == this.username) {
-            console.log("username in use", this.username)
-            response = "username taken";
-          } else if(resultArray[i].email == this.email) {
-            console.log("email in use")
-            response = "email already in use";
-          } else {
-            console.log("no se");
-            response = "good";
-          }
-        }
-      });
-      return response;
+      console.log("the users", this.users.body);
+      for (let item in this.users.body) {
+        console.log(item);
+      }
     },
     submit() {
-      let greenLight = this.compareData();
       this.formChecked = true;
       console.log("the greenlight response", greenLight);
       if(greenLight == "good") {
@@ -114,6 +73,17 @@ export default {
         return true;
       }
     }
+  },
+  created() {
+    this.$http.get('')
+    .then(response => {
+      console.log(response);
+      return response;
+    })
+    .then(data => {
+      console.log("the data", data.body)
+      this.users = data;
+    })
   },
   watch: {
     secondPassword() {

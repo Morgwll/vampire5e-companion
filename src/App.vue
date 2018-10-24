@@ -2,7 +2,7 @@
   <div id="app">
     <component :is="logReg"/>
     <hr>
-    <component :is="selected"/>
+    <!--<component :is="selected"/>-->
   </div>
 </template>
 <script>
@@ -16,12 +16,12 @@ export default {
     appLogin,
     appRegister,
     appCharacter,
-    appCharacterCreation
+    //appCharacterCreation
   },
   data() {
     return {
       logReg: appRegister,
-      selected: appCharacterCreation,
+      //selected: appCharacterCreation,
     }
   },
   methods: {
