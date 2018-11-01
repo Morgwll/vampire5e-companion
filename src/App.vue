@@ -1,28 +1,16 @@
 <template>
   <div id="app">
-    <component :is="logReg"/>
+    <app-header/>
     <hr>
-    <!--<component :is="selected"/>-->
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import appLogin from './components/Login.vue';
-import appRegister from './components/Register.vue';
-import appCharacter from './components/Character.vue';
-import appCharacterCreation from './components/CharacterCreation.vue';
+import appHeader from './components/Header.vue';
 
 export default {
   components: {
-    appLogin,
-    appRegister,
-    appCharacter,
-    //appCharacterCreation
-  },
-  data() {
-    return {
-      logReg: appRegister,
-      //selected: appCharacterCreation,
-    }
+    appHeader
   },
   methods: {
     login() {

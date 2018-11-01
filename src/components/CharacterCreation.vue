@@ -14,7 +14,7 @@
       </div>
       <div>{{ clan.text }}
         <select>
-          <option v-for="(item, index) in clan.value" :key="index">{{ item.text }}</option>
+         <option v-for="(item, index) in clan.value" :key="index">{{ item.text }}</option>
         </select>
       </div>
       <div>{{ generation.text }}
@@ -88,8 +88,8 @@
             </ul>
           </div>
           <div class="ability-points-mod">
-              <button @click.prevent="addSkillDots(item, 10)">+</button>
-              <button @click.prevent="removeSkillDots(item, 10)">-</button>
+              <button @click.prevent="addSkillDots(health.score, 10)">+</button>
+              <button @click.prevent="removeSkillDots(health.score, 10)">-</button>
             </div>
         </div>
         <div class="willpower-track">
@@ -102,8 +102,8 @@
             </ul>
           </div>
           <div class="ability-points-mod">
-              <button @click.prevent="addSkillDots(item, 10)">+</button>
-              <button @click.prevent="removeSkillDots(item, 10)">-</button>
+              <button @click.prevent="addSkillDots(willpower.score, 10)">+</button>
+              <button @click.prevent="removeSkillDots(willpower.score, 10)">-</button>
             </div>
         </div>
       </div>
@@ -270,8 +270,12 @@ export default {
           },
         }
       },
-      health: 6,
-      willpower: 5,
+      health: {
+        score: 6
+      },
+      willpower: {
+        score: 6
+      },
       humanity: 7,
       hunger: 3,
       gen: 1,
@@ -630,22 +634,32 @@ export default {
 }
 .abilities {
   height: 115px;
+  width: 100%;
+  max-width: 955px;
+  margin: 0 auto;
   h3 {
     text-align: center;
   }
   ul {
     list-style-type: none;
+    padding-left: 0;
+    margin: 10px 20px;
     .ability-score {
+      float: left;
+      width: calc(30% - 40px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
       .ability-name {
-        width: 105px;
+        width: 130px;
         float: left;
         height: 30px;
         line-height: 30px;
       }
       .ability-dots {
-        width: 140px;
-        height: 30px;
-        float: left;
+        width: 55px;
+        height: 12px;
         ul {
           .ability-black-dot, .ability-white-dot {
             border-radius: 50%;
